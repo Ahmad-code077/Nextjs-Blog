@@ -23,9 +23,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={`antialiased`}>
-        <ThemeProvider attribute='class' defaultTheme='system'>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navbar />
-          {children}
+          <div className='max-w-6xl mx-auto px-4 mt-4 '>{children}</div>
         </ThemeProvider>
       </body>
     </html>

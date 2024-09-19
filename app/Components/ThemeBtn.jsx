@@ -14,7 +14,6 @@ import {
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
-  console.log(theme);
 
   return (
     <DropdownMenu>
