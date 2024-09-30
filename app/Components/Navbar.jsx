@@ -4,7 +4,6 @@ import { ModeToggle } from './ThemeBtn';
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -31,7 +30,7 @@ const Navbar = () => {
         <div className='flex justify-between h-16 items-center '>
           <div className='flex-shrink-0 flex items-center'>
             <Link href='/' className='text-2xl font-bold'>
-              Logo
+              AHMADBLOGS
             </Link>
           </div>
           <div className='hidden md:flex items-center gap-x-8 font-bold'>
@@ -55,7 +54,11 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent className='dark:bg-black bg-white p-4'>
                 <SheetHeader>
-                  <SheetTitle>Menu</SheetTitle>
+                  <SheetTitle>
+                    <Link className='flex' href={'/'}>
+                      Logo
+                    </Link>
+                  </SheetTitle>
                 </SheetHeader>
 
                 <div className=' flex flex-col mt-10  font-bold'>
@@ -65,7 +68,7 @@ const Navbar = () => {
                       <Link
                         href={link}
                         key={id}
-                        className='hover:text-primary  border-b-4 py-4 transition duration-300'
+                        className='hover:text-primary  border-b-2 py-4 transition duration-300'
                       >
                         {title}
                       </Link>

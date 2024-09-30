@@ -77,6 +77,14 @@ body {
   }
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+::selection {
+  background-color: #ffcc00; /* Bright Yellow */
+  color: #002366; /* Dark Blue */
+}
+
 * {
   @apply border-border;
 }
