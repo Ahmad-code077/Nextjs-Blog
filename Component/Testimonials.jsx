@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import hamid from '../assets/hamid.jpeg';
-import sufiyan from '../assets/sufiyan.jpeg';
-import tulaib from '../assets/tulaib.jpeg';
-import waleedImg from '../assets/waleedImg.jpeg';
-
+import hamid from '../app/assets/hamid.jpeg';
+import sufiyan from '../app/assets/sufiyan.jpeg';
+import tulaib from '../app/assets/tulaib.jpeg';
+import waleedImg from '../app/assets/waleedImg.jpeg';
+import imran from '../app/assets/imran.jpeg';
+import usman from '../app/assets/usman.jpeg';
 const testimonialsData = [
   {
     id: 1,
@@ -32,6 +33,20 @@ const testimonialsData = [
     name: 'Waleed',
     position: 'Founder, StartSmart Agency',
     image: waleedImg,
+  },
+  {
+    id: 5,
+    text: 'This platform transformed the way we handle projects. It’s intuitive and packed with useful features that save us time and effort.',
+    name: 'Imran Farooq',
+    position: 'CTO, BrightFuture Tech',
+    image: imran,
+  },
+  {
+    id: 6,
+    text: 'I highly recommend this service to anyone looking for a reliable, user-friendly solution. It’s become a crucial part of our tech stack.',
+    name: 'Usman',
+    position: 'Software Engineer, DevCorp',
+    image: usman,
   },
 ];
 

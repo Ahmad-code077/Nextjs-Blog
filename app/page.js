@@ -1,7 +1,7 @@
-import BlogJourney from './Components/BlogJourney';
-import Cards from './Components/Cards';
-import Hero from './Components/Hero';
-import Testimonials from './Components/Testimonials';
+import BlogJourney from '../Component/BlogJourney';
+import Cards from '../Component/Cards';
+import Hero from '../Component/Hero';
+import Testimonials from '../Component/Testimonials';
 
 const Home = () => {
   return (

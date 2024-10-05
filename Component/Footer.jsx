@@ -53,7 +53,7 @@ const Footer = () => {
           <div className='mb-6 md:mb-0 flex flex-col gap-4 '>
             <Link
               href='/'
-              className='self-center text-2xl font-semibold text-start whitespace-nowrap dark:text-white'
+              className='self-center text-2xl font-semibold text-start whitespace-nowrap text-primary'
             >
               Ahmad Blogs
             </Link>

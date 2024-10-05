@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/sheet';
 
 const data = [
+  { id: 4, link: '/', title: 'Home' },
   {
     id: 1,
     link: '/about',
@@ -21,7 +22,6 @@ const data = [
     title: 'Blog',
   },
   { id: 3, link: '/contact', title: 'Contact' },
-  { id: 4, link: '/login', title: 'Login' },
 ];
 const Navbar = () => {
   return (

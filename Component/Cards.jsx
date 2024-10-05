@@ -30,12 +30,12 @@ const Cards = () => {
         return (
           <Card key={id} className='text-center   dark:bg-primary-foreground '>
             <CardHeader>
-              <CardTitle className='text-lg font-semibold '>
+              <CardTitle className='text-xl font-semibold '>
                 {heading}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className='mt-2'>{para}</CardDescription>
+              <CardDescription className='mt-2 text-lg'>{para}</CardDescription>
             </CardContent>
           </Card>
         );
