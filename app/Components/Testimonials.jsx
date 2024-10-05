@@ -40,16 +40,13 @@ const Testimonials = () => {
     <div>
       <div className='flex-col items-center'>
         <div className='flex flex-col items-center justify-center w-full h-full max-w-2xl pr-8 mx-auto text-center'>
-          <p className='my-5 text-base font-medium tracking-tight text-indigo-500 uppercase'>
-            Our customers love our product
+          <p className='my-5 text-base font-medium tracking-tight  uppercase'>
+            FeedBack from my friends
           </p>
-          <h2 className='text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl'>
+          <h2 className='text-4xl font-extrabold leading-10 tracking-tight  sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl'>
             Testimonials
           </h2>
-          <p className='my-6 text-xl font-medium text-gray-500'>
-            Don't just take our word for it, read from our extensive list of
-            case studies and customer testimonials.
-          </p>
+          <p className='my-6 text-xl font-medium text-foreground'>FeedBack</p>
         </div>
         <div className='grid'>
           {testimonialsData.map(({ id, text, name, position, image }) => (
