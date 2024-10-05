@@ -1,23 +1,6 @@
 import { Button } from '@/components/ui/button';
 
-const CardData = [
-  {
-    id: 1,
-    heading: 'Engaging Content',
-    para: 'Discover articles that captivate and inform.',
-  },
-  {
-    id: 2,
-    heading: 'Diverse Topics ',
-    para: 'Explore a range of subjects from various viewpoints.',
-  },
-  {
-    id: 3,
-    heading: 'Join the Community',
-    para: 'Connect with fellow readers and share your thoughts.',
-  },
-];
-const HomePage = () => {
+const Hero = () => {
   return (
     <>
       <div className='text-center mt-8 '>
@@ -48,22 +31,9 @@ const HomePage = () => {
             Discover More
           </Button>
         </div>
-        <div className='py-8 mt-16 border-y border-border dark:border-border sm:grid sm:grid-cols-3 gap-8'>
-          {CardData.map((item) => {
-            const { id, heading, para } = item;
-            return (
-              <>
-                <div className='text-center' key={id}>
-                  <h6 className='text-lg font-semibold  '>{heading}</h6>
-                  <p className='mt-2 '>{para} </p>
-                </div>
-              </>
-            );
-          })}
-        </div>
       </div>
     </>
   );
 };
 
-export default HomePage;
+export default Hero;

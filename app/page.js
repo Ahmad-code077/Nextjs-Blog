@@ -1,11 +1,13 @@
 import BlogJourney from './Components/BlogJourney';
-import HomePage from './Components/HomePage';
+import Cards from './Components/Cards';
+import Hero from './Components/Hero';
 import Testimonials from './Components/Testimonials';
 
 const Home = () => {
   return (
     <>
-      <HomePage />
+      <Hero />
+      <Cards />
       <BlogJourney />
       <Testimonials />
     </>

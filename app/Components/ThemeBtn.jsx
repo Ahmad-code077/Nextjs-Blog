@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
-
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -14,6 +13,17 @@ import {
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  // Only set mounted to true after the component has mounted on the client
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // If not mounted, render nothing to avoid SSR and CSR mismatch
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <DropdownMenu>
