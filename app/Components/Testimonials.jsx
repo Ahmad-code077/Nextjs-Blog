@@ -50,7 +50,7 @@ const Testimonials = () => {
         </div>
         <div className='grid'>
           {testimonialsData.map(({ id, text, name, position, image }) => (
-            <div key={id} className='w-full xl:w-1/2 xl:pr-8'>
+            <div key={id} className='w-full xl:w-1/2 xl:pr-8 '>
               <blockquote className='flex flex-col-reverse items-center justify-between w-full col-span-1 p-6 text-center transition-all duration-200 bg-gray-100 rounded-lg md:flex-row md:text-left hover:bg-white hover:shadow ease'>
                 <div className='flex flex-col pr-8'>
                   <p className='mt-2 text-base text-gray-600'>{text}</p>
