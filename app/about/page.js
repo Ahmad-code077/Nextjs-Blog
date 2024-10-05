@@ -1,4 +1,10 @@
+import About from '../Components/About';
+
 const AboutPage = () => {
-  return <div>AboutPage</div>;
+  return (
+    <>
+      <About />
+    </>
+  );
 };
 export default AboutPage;

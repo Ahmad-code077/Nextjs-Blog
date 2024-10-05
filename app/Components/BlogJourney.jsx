@@ -1,6 +1,6 @@
 const BlogJourney = () => {
   return (
-    <section className='flex flex-col md:flex-row lg:-mx-8 mt-16 gap-10'>
+    <section className='flex flex-col md:flex-row lg:mx-8 mt-16 gap-10'>
       <div className='w-full lg:w-1/2 lg:px-8'>
         <h6 className='text-sm uppercase font-semibold tracking-widest text-center '>
           Our Blogging Journey

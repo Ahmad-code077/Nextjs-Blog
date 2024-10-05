@@ -37,10 +37,10 @@ const testimonialsData = [
 
 const Testimonials = () => {
   return (
-    <section className='mt-8'>
+    <section className='my-8'>
       <div className='flex-col items-center'>
         <div className='flex flex-col items-center justify-center w-full h-full max-w-2xl pr-8 mx-auto text-center'>
-          <p className='my-5 text-sm uppercase font-semibold tracking-widest text-center'>
+          <p className='my-5 text-sm uppercase font-semibold tracking-widest text-center text-primary'>
             FeedBack from my friends
           </p>
           <h2 className='text-4xl font-extrabold leading-10 tracking-tight  sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl'>
@@ -54,7 +54,7 @@ const Testimonials = () => {
               className='flex flex-col-reverse items-center justify-between w-full p-6  transition-all duration-200  rounded-lg md:flex-row ease-in-out border-primary border text-center lg:text-left'
               key={id}
             >
-              <div className='flex flex-col pr-8'>
+              <div className='flex flex-col gap-6'>
                 <p className='mt-2 text-base text-gray-600 dark:text-gray-300 '>
                   {text}
                 </p>
@@ -69,6 +69,7 @@ const Testimonials = () => {
                 className='flex-shrink-0 border-primary border-2 object-cover w-40 h-40 mb-5  rounded-full md:mb-0 hover:scale-105 transition-all duration-200'
                 src={image}
                 alt={name}
+                priority
                 width={96}
                 height={96}
               />
