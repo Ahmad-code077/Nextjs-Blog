@@ -3,7 +3,8 @@ module.exports = {
   darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}', // lowercase "components"
+    './Component/**/*.{js,ts,jsx,tsx,mdx}', // capitalized "Component"
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
