@@ -51,6 +51,7 @@ const testimonialsData = [
 ];
 
 const Testimonials = () => {
+  // added commit at testimonials
   return (
     <section className='my-8'>
       <div className='flex-col items-center'>
