@@ -24,9 +24,9 @@ const About = () => {
         </p>
         <p className='mt-4 text-lg text-gray-700 dark:text-gray-300 text-center'>
           We believe in the power of open-source knowledge and the importance of
-          collaboration. Whether you’re looking to refine your skills or find
-          new projects to contribute to, Ahmad Blogs is here to support you on
-          your journey. Join us as we explore the ever-evolving world of
+          collaboration. Whether you&apos;re looking to refine your skills or
+          find new projects to contribute to, Ahmad Blogs is here to support you
+          on your journey. Join us as we explore the ever-evolving world of
           technology!
         </p>
         <div className='mt-8 flex flex-col items-center'>
