@@ -4,9 +4,7 @@ import Image from 'next/image';
 function SingleBlog({ params }) {
   const { id } = params;
 
-  // console.log(id);
   const singleItem = blogs.find((item) => item.id === id);
-  // console.log(singleItem);
   const { title, image, desc, author, content, tag } = singleItem;
 
   return (
@@ -20,21 +18,18 @@ function SingleBlog({ params }) {
               alt={title || 'image'}
               priority
               fill
-              style={{ objectFit: 'cover' }} // Use inline style for object-fit
+              style={{ objectFit: 'cover' }}
               className='rounded-lg'
             />
           )}
         </div>
       </div>
-      <h1 className='mt-4 text-3xl font-bold'>
+      <h1 className='mt-4 text-3xl lg:text-5xl my-8 font-bold text-center '>
         {title}{' '}
-        {/* <span className='mt-1 text-sm text-gray-500'>
-          (Created at {formattedCreatedAt}){' '}
-        </span> */}
       </h1>
       <p className='mt-2 text-lg'>{desc}</p>
-      <p className='mt-1 text-sm text-gray-500'>By {author}</p>
-      <p className='mt-1'>{content}</p>
+      <p className='mt-1  text-primary'>Writer : {author}</p>
+      <p className='mt-1 text-lg'>{content}</p>
       <div className='mt-6 flex flex-wrap items-center justify-center'>
         {tag?.map((tag) => (
           <span
