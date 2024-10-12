@@ -1,5 +1,4 @@
 'use client';
-
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -14,11 +13,11 @@ const blogSchema = z.object({
     .max(100, 'Title must be at most 100 characters'),
   desc: z
     .string()
-    .min(5, 'Description is  minimum length is 5 characters')
+    .min(5, 'Description is minimum length is 5 characters')
     .max(500, 'Description must be at most 500 characters'),
   author: z
     .string()
-    .min(1, 'Author name is At least one character ')
+    .min(1, 'Author name is at least one character ')
     .max(50, 'Author name must be at most 50 characters'),
   content: z
     .string()
@@ -31,46 +30,40 @@ const blogSchema = z.object({
 });
 
 const CreateBlog = () => {
-  // const [imageFile, setImageFile] = useState(null);
   const [errors, setErrors] = useState({}); // For storing validation errors
-
-  // const handleFileChange = (event) => {
-  //   const file = event.target.files[0];
-  //   setImageFile(file); // Store the selected file in the state
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-    console.log('submit');
+    const formData = new FormData(e.currentTarget); // Get form data
 
     try {
-      const sendData = Object.fromEntries(formData);
-      blogSchema.parse(sendData);
+      const sendData = Object.fromEntries(formData); // Convert FormData to an object
+      blogSchema.parse(sendData); // Validate data using Zod schema
 
-      // if (!imageFile) {
-      //   throw new Error('Image file is required ');
-      // }
+      const response = await fetch('/api/posts', {
+        method: 'POST',
+        body: JSON.stringify(sendData), // Send the data as JSON
+        headers: { 'Content-Type': 'application/json' }, // Set the content type to JSON
+      });
 
-      // Append the image file to formData
-      // formData.append('image', imageFile);
+      if (!response.ok) {
+        throw new Error('Failed to create blog post');
+      }
 
-      console.log('Form Data:', sendData);
+      const newPost = await response.json();
+      console.log('New Blog Post Created:', newPost);
 
-      console.log('Form submitted successfully');
+      // Reset form fields
       setErrors({});
-      e.currentTarget.reset();
-      // setImageFile(null);
     } catch (error) {
       const fieldErrors = {};
       if (error instanceof z.ZodError) {
-        console.log(error);
         error.errors.forEach((err) => {
-          fieldErrors[err.path[0]] = err.message;
+          fieldErrors[err.path[0]] = err.message; // Map field errors
         });
       }
-      setErrors(fieldErrors);
+      setErrors(fieldErrors); // Set validation errors
+      console.error('Error creating blog post:', error);
     }
   };
 
@@ -85,20 +78,6 @@ const CreateBlog = () => {
         <Input id='title' name='title' />
         {errors.title && <p className='text-red-500 text-sm'>{errors.title}</p>}
       </div>
-
-      {/* <div className='mb-4'>
-        <label className='block text-sm font-bold mb-2' htmlFor='image'>
-          Upload Image
-        </label>
-        <Input
-          id='image'
-          name='image'
-          type='file'
-          accept='image/*'
-          onChange={handleFileChange}
-        />
-        {errors.image && <p className='text-red-500 text-sm'>{errors.image}</p>}
-      </div> */}
 
       <div className='mb-4'>
         <label className='block text-sm font-bold mb-2' htmlFor='desc'>

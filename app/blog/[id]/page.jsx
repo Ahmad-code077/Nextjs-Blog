@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 function SingleBlog({ params }) {
   const { id } = params;
+  console.log(id);
 
   const singleItem = blogs.find((item) => item.id === id);
   const { title, image, desc, author, content, tag } = singleItem;
