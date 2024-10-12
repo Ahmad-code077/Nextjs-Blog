@@ -27,6 +27,7 @@ const blogSchema = z.object({
     .string()
     .min(2, 'Tags should be at least 2 characters')
     .max(200, 'Tags must be at most 200 characters'),
+  image: z.instanceof(File).optional(), // Optional for image, add if you want to require it
 });
 
 const CreateBlog = () => {
@@ -36,14 +37,30 @@ const CreateBlog = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget); // Get form data
 
-    try {
-      const sendData = Object.fromEntries(formData); // Convert FormData to an object
-      blogSchema.parse(sendData); // Validate data using Zod schema
+    // Log the form data for debugging
+    for (const [key, value] of formData.entries()) {
+      console.log(key, value); // the data is comming
+    }
 
+    try {
+      // Convert FormData to an object for validation
+      const sendData = Object.fromEntries(formData); // Convert FormData to an object
+
+      // Validate data using Zod schema
+      blogSchema.parse(sendData);
+
+      // Additional validation for the image
+      const file = formData.get('image');
+      if (file && !(file instanceof File)) {
+        throw new z.ZodError([
+          { path: ['image'], message: 'Invalid image file' },
+        ]);
+      }
+
+      // Send the form data
       const response = await fetch('/api/posts', {
         method: 'POST',
-        body: JSON.stringify(sendData), // Send the data as JSON
-        headers: { 'Content-Type': 'application/json' }, // Set the content type to JSON
+        body: formData, // but this is not working the error is here
       });
 
       if (!response.ok) {
@@ -55,12 +72,15 @@ const CreateBlog = () => {
 
       // Reset form fields
       setErrors({});
+      e.currentTarget.reset(); // Reset the form fields after successful submission
     } catch (error) {
       const fieldErrors = {};
       if (error instanceof z.ZodError) {
         error.errors.forEach((err) => {
           fieldErrors[err.path[0]] = err.message; // Map field errors
         });
+      } else {
+        fieldErrors.general = error.message; // Handle other errors
       }
       setErrors(fieldErrors); // Set validation errors
       console.error('Error creating blog post:', error);
@@ -115,9 +135,22 @@ const CreateBlog = () => {
         {errors.tags && <p className='text-red-500 text-sm'>{errors.tags}</p>}
       </div>
 
+      <div className='mb-4'>
+        <label className='block text-sm font-bold mb-2' htmlFor='image'>
+          Upload Image
+        </label>
+        <Input type='file' id='image' name='image' accept='image/*' />
+        {errors.image && <p className='text-red-500 text-sm'>{errors.image}</p>}
+      </div>
+
       <Button type='submit' className='w-full'>
         Submit
       </Button>
+
+      {/* General error message display */}
+      {errors.general && (
+        <p className='text-red-500 text-sm'>{errors.general}</p>
+      )}
     </form>
   );
 };
