@@ -27,29 +27,25 @@ const blogSchema = z.object({
     .string()
     .min(2, 'Tags should be at least 2 characters')
     .max(200, 'Tags must be at most 200 characters'),
-  image: z.instanceof(File).optional(), // Optional for image, add if you want to require it
+  image: z.instanceof(File).optional(),
 });
 
 const CreateBlog = () => {
-  const [errors, setErrors] = useState({}); // For storing validation errors
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget); // Get form data
+    const formData = new FormData(e.currentTarget);
 
-    // Log the form data for debugging
     for (const [key, value] of formData.entries()) {
-      console.log(key, value); // the data is comming
+      console.log(key, value);
     }
 
     try {
-      // Convert FormData to an object for validation
-      const sendData = Object.fromEntries(formData); // Convert FormData to an object
+      const sendData = Object.fromEntries(formData);
 
-      // Validate data using Zod schema
       blogSchema.parse(sendData);
 
-      // Additional validation for the image
       const file = formData.get('image');
       if (file && !(file instanceof File)) {
         throw new z.ZodError([
@@ -57,10 +53,9 @@ const CreateBlog = () => {
         ]);
       }
 
-      // Send the form data
       const response = await fetch('/api/posts', {
         method: 'POST',
-        body: formData, // but this is not working the error is here
+        body: formData,
       });
 
       if (!response.ok) {
@@ -70,19 +65,18 @@ const CreateBlog = () => {
       const newPost = await response.json();
       console.log('New Blog Post Created:', newPost);
 
-      // Reset form fields
       setErrors({});
-      e.currentTarget.reset(); // Reset the form fields after successful submission
+      e.currentTarget.reset();
     } catch (error) {
       const fieldErrors = {};
       if (error instanceof z.ZodError) {
         error.errors.forEach((err) => {
-          fieldErrors[err.path[0]] = err.message; // Map field errors
+          fieldErrors[err.path[0]] = err.message;
         });
       } else {
-        fieldErrors.general = error.message; // Handle other errors
+        fieldErrors.general = error.message;
       }
-      setErrors(fieldErrors); // Set validation errors
+      setErrors(fieldErrors);
       console.error('Error creating blog post:', error);
     }
   };
@@ -147,7 +141,6 @@ const CreateBlog = () => {
         Submit
       </Button>
 
-      {/* General error message display */}
       {errors.general && (
         <p className='text-red-500 text-sm'>{errors.general}</p>
       )}
