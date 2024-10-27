@@ -134,7 +134,7 @@ const Footer = () => {
               <span className='sr-only'>GitHub account</span>
             </a>
             <a
-              href='https://www.linkedin.com/in/muhammad-ahmad-5847502b0'
+              href='https://www.linkedin.com/in/muhammad-ahmad077'
               className='text-gray-500 transition-all duration-300 hover:text-gray-900 dark:hover:text-white ms-5 text-12'
               target='_blank'
               rel='noopener noreferrer'

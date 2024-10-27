@@ -22,7 +22,7 @@ const data = [
     title: 'Blog',
   },
   { id: 3, link: '/contact', title: 'Contact' },
-  { id: 5, link: '/createBlog', title: 'Create Blog' },
+  // { id: 5, link: '/createBlog', title: 'Create Blog' },
 ];
 const Navbar = () => {
   return (

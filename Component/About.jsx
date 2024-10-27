@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 my-8 rounded-md'>
+    <div className='min-h-screen flex flex-col items-center justify-center  my-8 rounded-md'>
       <div className='max-w-4xl mx-auto px-4 py-8'>
         <h1 className='text-4xl font-bold text-center text-gray-900 dark:text-white'>
           About <span className='text-primary'>Ahmad Blogs</span>
@@ -47,7 +47,7 @@ const About = () => {
             </Button>
             <Button variant='outline' asChild className='bg-primary'>
               <a
-                href='https://www.linkedin.com/in/muhammad-ahmad-5847502b0'
+                href='https://www.linkedin.com/in/muhammad-ahmad077/'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='flex items-center text-white hover:text-primary transition-colors duration-300'

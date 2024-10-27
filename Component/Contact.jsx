@@ -13,7 +13,7 @@ const Contact = () => {
 
   return (
     <div className='max-w-2xl mx-auto p-6 space-y-6  rounded-lg shadow-md'>
-      <h1 className='text-3xl font-bold text-center'>Contact Us</h1>
+      <h1 className='text-3xl font-bold text-center'>Contact Me</h1>
       <form
         onSubmit={handleSubmit}
         className='space-y-4 bg-slate-900 rounded-lg p-9'
